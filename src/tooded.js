@@ -1,5 +1,8 @@
+// App.js
 import { useEffect, useRef, useState } from 'react';
-import './App.css';
+import { Link } from 'react-router-dom';
+import Navigation from './navigation'; // Импорт компонента навигации
+import './styles/tooded.css';
 
 function App() {
   const [tooted, setTooted] = useState([]);
@@ -72,6 +75,8 @@ function App() {
 
   return (
     <div className="App">
+      <Navigation /> {/* Добавляем компонент навигации */}
+
       <label>ID</label> <br />
       <input ref={idRef} type="number" /> <br />
       <label>Nimi</label> <br />
@@ -83,7 +88,7 @@ function App() {
       <button onClick={lisa}>Lisa</button>
 
       {tooted.map((toode, index) => (
-        <div key={toode.id} style={{ border: "1px solid black", padding: "10px", margin: "10px 0" }}>
+        <div key={toode.id}>
           <div><strong>ID:</strong> {toode.id}</div>
           <div><strong>Nimi:</strong> {toode.name}</div>
           <div><strong>Hind:</strong> {toode.price}</div>
